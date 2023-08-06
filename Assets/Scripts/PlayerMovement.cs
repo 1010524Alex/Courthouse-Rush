@@ -43,12 +43,14 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.localScale = new Vector3(3, 3, 1);
             gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
             animator.SetTrigger("Exhaust");
+            animator.SetTrigger("Speed Effect");
         }
         else if (MovementDirection.x<0)
         {
             gameObject.transform.localScale = new Vector3(-3, 3, 1);
             gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
             animator.SetTrigger("Exhaust");
+            animator.SetTrigger("Speed Effect");
         }
         else
         {
