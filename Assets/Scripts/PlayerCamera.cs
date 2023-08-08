@@ -17,6 +17,6 @@ public class PlayerCamera : MonoBehaviour
     {
         transform.position = gameobject.position + offset;
 
-        transform.position = new Vector3(gameobject.transform.position.x, 5.3f, -16);
+        transform.position = new Vector3(gameobject.transform.position.x, 17.6f, -16);
     }
 }
