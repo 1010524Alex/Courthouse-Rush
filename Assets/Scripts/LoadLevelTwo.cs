@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UnderGroundScene : MonoBehaviour
+public class FinishLine : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(4);
+        Debug.Log(collision.gameObject.name);
+        SceneManager.LoadScene(2);
     }
 }
+    

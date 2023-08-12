@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
         float sec = Mathf.FloorToInt(timer % 60);
         text.text = string.Format("{00:00} : {1:00}", min, sec); 
 
-        if (timer <= 0)
+        if (timer < 0)
         {
             SceneManager.LoadScene(3);
         }
