@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScreen.unity
     guid: 1a9f947a187c48b44a62f2bb937b060f
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/GameplayScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/VictoryScreen.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: b2f222bde8e5cdd4f980aefe7e8c4f50
+  - enabled: 1
+    path: Assets/Scenes/UndergroundScene.unity
+    guid: ba488add3ac05d44bab60cc7634959a4
   m_configObjects: {}

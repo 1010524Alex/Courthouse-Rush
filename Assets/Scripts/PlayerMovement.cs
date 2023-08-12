@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 MovementDirection;
     public Animator animator;
+    public Animator Speed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,14 +45,14 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.localScale = new Vector3(3, 3, 1);
             gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, -15f);
             animator.SetTrigger("Exhaust");
-            animator.SetTrigger("Speed Effect");
+            Speed.SetTrigger("Speed Illusion");        
         }
         else if (MovementDirection.x<0)
         {
             gameObject.transform.localScale = new Vector3(-3, 3, 1);
             gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 15f);
             animator.SetTrigger("Exhaust");
-            animator.SetTrigger("Speed Effect");
+            Speed.SetTrigger("Speed Illusion");
         }
         else
         {
