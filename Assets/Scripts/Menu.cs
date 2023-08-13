@@ -17,6 +17,21 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void StoryButton()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void ControlsButton()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void CreditsButton()
+    {
+        SceneManager.LoadScene(8);
+    }
+
     public void QuitButton ()
     {
         Application.Quit();
