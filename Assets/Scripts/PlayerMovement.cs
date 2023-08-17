@@ -28,14 +28,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey("left shift"))
         {
-            MovementSpeed =2000f;
+            BoostSpeed();
+            BoostMeter.Instance.BoostUse(1);
         }
         else
         {
             MovementSpeed =500f;
         }
 
-        if (MovementDirection.y > 0)
+        if (MovementDirection.y>0)
         {
             animator.SetTrigger("Exhaust");
         }
@@ -60,10 +61,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
+    }
 
-
-        
-            
+    public void BoostSpeed()
+    {
+        MovementSpeed = 2000f;
     }
 
     private void FixedUpdate()
