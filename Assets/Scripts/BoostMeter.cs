@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class BoostMeter : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class BoostMeter : MonoBehaviour
     private int MaxBoost = 2000;
     private int CurrentBoost;
     public static BoostMeter Instance;
+    private WaitForSeconds RegenValue = new WaitForSeconds(0.1f);
+    private Coroutine Regen;
     // Start is called before the first frame update
     
      private void Awake()
@@ -36,19 +37,23 @@ public class BoostMeter : MonoBehaviour
         {
             CurrentBoost -= amount;
             Boost.value = CurrentBoost;
+            if(Regen != null)
+            {
+                StopCoroutine(Regen);
+            }
+            Regen = StartCoroutine(RegenBoost());
           
         }
     }
 
-    private IEnumerable RegenBoost()
+    private IEnumerator RegenBoost()
     {
         yield return new WaitForSeconds(2);
         while(CurrentBoost < MaxBoost)
         {
-            CurrentBoost += MaxBoost / 2000;
-            Boost.value += CurrentBoost;
-            yield return new WaitForSeconds(0.1f);
+            CurrentBoost++;
         }
+
     }
 
    
