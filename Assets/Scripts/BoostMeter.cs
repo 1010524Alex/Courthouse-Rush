@@ -7,10 +7,11 @@ public class BoostMeter : MonoBehaviour
 {
     public Slider Boost;
     private int MaxBoost = 2000;
-    private int CurrentBoost;
+    public int CurrentBoost;
     public static BoostMeter Instance;
-    private WaitForSeconds RegenValue = new WaitForSeconds(0.1f);
-    private Coroutine Regen;
+    private WaitForSeconds RechargeValue = new WaitForSeconds(0.1f);
+    private Coroutine Recharge;
+    
     // Start is called before the first frame update
     
      private void Awake()
@@ -33,26 +34,33 @@ public class BoostMeter : MonoBehaviour
 
     public void BoostUse(int amount)
     {
-        if(CurrentBoost - amount >= 0f)
+        if(CurrentBoost - amount >= 0)
         {
             CurrentBoost -= amount;
             Boost.value = CurrentBoost;
-            if(Regen != null)
+            if(Recharge != null)
             {
-                StopCoroutine(Regen);
+                StopCoroutine(Recharge);
             }
-            Regen = StartCoroutine(RegenBoost());
+            Recharge = StartCoroutine(RegenBoost());
           
+        }
+        else
+        {
+            Debug.Log("Boost insufficient");
         }
     }
 
     private IEnumerator RegenBoost()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
         while(CurrentBoost < MaxBoost)
         {
-            CurrentBoost++;
+            CurrentBoost += MaxBoost / 20;
+            Boost.value = CurrentBoost;
+            yield return RechargeValue;
         }
+        Recharge = null;
 
     }
 

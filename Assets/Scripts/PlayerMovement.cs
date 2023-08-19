@@ -26,15 +26,16 @@ public class PlayerMovement : MonoBehaviour
 
         //check for an input is held
 
-        if (Input.GetKey("left shift"))
+        if (Input.GetKey("left shift")) 
         {
             BoostSpeed();
             BoostMeter.Instance.BoostUse(1);
         }
         else
         {
-            MovementSpeed =500f;
+            RegSpeed();
         }
+
 
         if (MovementDirection.y>0)
         {
@@ -63,13 +64,19 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public void BoostSpeed()
-    {
-        MovementSpeed = 2000f;
-    }
-
     private void FixedUpdate()
     {
         rb.velocity = MovementDirection * MovementSpeed * Time.smoothDeltaTime;
     }
+
+    public void BoostSpeed()
+    {
+        MovementSpeed = 2000;
+    }
+
+    public void RegSpeed()
+    {
+        MovementSpeed = 500;
+    }
+
 }
